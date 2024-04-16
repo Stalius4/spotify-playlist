@@ -8,18 +8,27 @@ const [searchInput, setSearchInput] = useState("")
     setSearchInput(result);
     
   }
-const handleSubmit = ()=> {
+const handleSubmit = (event)=> {
+  event.preventDefault()
 setSearchResult(searchInput);
 }
 
+const handleKeyPress = (event) => {
+  if (event.key === 'Enter') {
+    handleSubmit(event); // Call handleSubmit when Enter key is pressed
+  }
+}
   return (
-<div className={styles.outer}>
-   <label  htmlFor="search">
-    <input id="search" type="text" placeholder="Add your song" value={searchInput} onChange={handleChange}></input>
-    </label>
-   <button onClick={handleSubmit}>SEARCH</button>
-   <div>{searchResult}</div>
-</div>
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={searchInput}
+        onChange={handleChange}
+        onKeyPress={handleKeyPress} // Add the key press handler here
+        placeholder="Type something..."
+      />
+      <button type="submit">Submit</button>
+    </form>
   );
 }
 

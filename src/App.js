@@ -96,9 +96,9 @@ type:"track"
   
   }])
 
-// useEffect(() => {
-// fetchMusic(searchResult,setStoredMusic, setIsLoading)
-// }, [searchResult]);
+useEffect(() => {
+fetchMusic(searchResult,setStoredMusic, setIsLoading)
+ }, [searchResult]);
 
 
 
