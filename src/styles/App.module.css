@@ -14,3 +14,10 @@
 .flex{
     display: flex;
 }
+.fontRed{
+    color: brown;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
