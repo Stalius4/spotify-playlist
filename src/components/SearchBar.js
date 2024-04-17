@@ -18,17 +18,19 @@ const handleKeyPress = (event) => {
     handleSubmit(event); // Call handleSubmit when Enter key is pressed
   }
 }
-  return (
-    <form onSubmit={handleSubmit}>
+  return (<div className={styles.outer}>
+    <div>logo</div>
+    <form onSubmit={handleSubmit} >
       <input
         type="text"
         value={searchInput}
         onChange={handleChange}
         onKeyPress={handleKeyPress} // Add the key press handler here
-        placeholder="Type something..."
+        placeholder="Search songs"
       />
       <button type="submit">Submit</button>
     </form>
+    </div>
   );
 }
 
