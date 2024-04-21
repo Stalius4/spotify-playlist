@@ -4,7 +4,7 @@ import Track from "./Track";
 function SearchResult({ storedMusic}) {
   
   return (
-    <div>
+    <div className={styles.outer}>dasd
 <Track storedMusic={storedMusic}></Track>
   </div>
   );

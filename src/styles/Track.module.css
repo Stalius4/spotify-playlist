@@ -1,3 +1,40 @@
-.test{
-    color:red
+.card{
+    display: flex;
+    width: 1164px;
+    height: 55px;
+    color:rgb(0, 0, 0);
+    background-color: aliceblue;
+    gap: 10px;
+    align-items: center;
+    border: solid 1px black;
+    padding-left: 4px;
+}
+
+.play{
+    width: 45px;
+    height: 45px;
+    background-color: #A7DADC;
+    border: none;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: bold;
+    font-size: 12px;
+    padding: 0;
+}
+
+.addTrack{
+    font-size: 40px;
+}
+
+.outter{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+   
+}
+
+.trackInfo{
+    
 }

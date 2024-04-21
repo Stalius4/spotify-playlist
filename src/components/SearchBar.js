@@ -28,7 +28,7 @@ const handleKeyPress = (event) => {
         onKeyPress={handleKeyPress} // Add the key press handler here
         placeholder="Search songs"
       />
-      <button type="submit">Submit</button>
+      <button className={styles.submit} type="submit">Submit</button>
     </form>
     </div>
   );

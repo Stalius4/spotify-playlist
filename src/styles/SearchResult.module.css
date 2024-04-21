@@ -6,17 +6,10 @@
 
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 3;
 }
 
-.card {
-width: 1164px;
-height: 65px;
-display: flex;
-background: rgb(52, 52, 52);
-align-items: center;
-padding-left: 10px;
-}
+
 
 img {
 	
