@@ -1,17 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300..700&display=swap');
 
 .outer{
-    display: flex;
-    flex-direction: row;
-    color:red;
-    background-color: #d2d5d0;
+
+    color:var(--text-color);
+    background-color: var(--container-color);
     width: 100%;
     display: flex;
     height: 60px;
-    align-items: center;
     justify-content: space-around;
     border-bottom: 1px solid rgba(128, 128, 128, 0.545);
     gap: 55px;
+}
+
+.inner{
+  max-height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }
 
 input{
@@ -22,7 +28,7 @@ input{
   width: 416px;
   height: 32px;
   font-size: 20px;
-  background-color: #B0BDC1;
+  background-color:var(--pop-up-color);
   
   font-family: "Poppins", sans-serif;
   font-weight: 300;
@@ -30,7 +36,8 @@ input{
 
 }
 input::placeholder{
-  color: #00000080;
+  color: white;
+  text-align: center;
 }
 input:focus{
   border-color: rgb(244, 244, 252); /* Change 'blue' to whatever color you prefer */
@@ -39,15 +46,16 @@ input:focus{
 .submit{
   width: 127px;
   height: 34px;
-  background-color: #A7DADC;
+  background-color: var(--bg-color);
   border: none;
   border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  
+  box-shadow: rgb(153, 153, 153) 0px 1px 1px, rgba(179, 179, 179, 0.937) 0px 0px 1px 1px;
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-style: normal;
   font-size: 20px;
-  
+  color: var(--text-color);
 }
 
 form{

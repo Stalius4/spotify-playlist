@@ -1,9 +1,33 @@
 import styles from "../styles/Playlist.module.css"
 
-function PlayList() {
+function PlayList({playlist}) {
   return (
-<div className={styles.test}>
-    PlayLIst
+<div className={styles.outer}>
+  <div className={styles.flexRow}>
+    <spam className={styles.plus}>+</spam>
+    <h2>Create Playlist</h2>
+  </div>
+  <div className={styles.header}>
+    <div className={styles.titleArtist}>Title/Artist</div>
+    <div className={styles.album}>Album</div>
+  </div>
+{playlist &&
+      playlist.map((item, index) => (
+        <div className={styles.card} key={item.index}>
+          <img className={styles.albumImage}src={item.album.images[1].url} alt={item.id} />
+ 
+        
+          <div className={styles.trackNumber}>{index+1}</div>
+          <div>
+          <h1 className={styles.title}>{item.name}</h1>
+          <div className={styles.info}>{ `${item.artists[0].name}`}</div>
+          </div>
+          <div className={styles.albumName}> {item.album.name}</div>
+          <div className={styles.addTrack}>+</div>     
+      
+
+        </div>
+      ))}
 </div>
   );
 }

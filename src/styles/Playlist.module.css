@@ -1,3 +1,111 @@
-.test{
-    color:red
+
+
+/* main container Your playlist */
+.outer{
+    background-color: var(--container-color);
+    border: 1px solid rgb(161, 161, 161);
+    min-width: 500px;
+    min-height: 300px;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap:5px;
+    border-radius: 4px;
+}
+
+
+/* your playlist space */
+h2{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+
+
+
+/* plus sign */
+.addTrack{
+    font-size: 40px;
+    
+}
+.plus{
+    font-size: 35px;
+    justify-content: baseline;
+}
+.flexRow{
+    display: flex;
+    align-items:center;
+    gap: 4px;
+   
+}
+/* title artist album space */
+.header{
+    display: flex;
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 15px;
+    color:var(--text-color-shadow);
+    border-bottom: solid rgb(140, 139, 139) 1px;
+    border-radius: 2px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+/* all tracks */
+.card{
+    display: flex;
+    width:95%;
+    height: 50px;
+    color:var(--text-color);
+    background-color: var(--pop-up-color);
+    gap: 10px;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    border: solid rgb(198, 198, 198) 1px;
+    border-radius: 2px;
+    justify-content:space-between;
+    padding-right: 10px;
+    align-content:flex-start;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+
+.albumImage{
+    height: 50px;
+    width: 48px;
+    border: solid 0.5px var(--text-color-shadow);
+}
+
+.title{
+    color: var(--text-color);
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 15px;
+    min-width: 200px;
+    max-width: 200px;
+}
+
+.info{
+    color: var(--text-color-shadow);
+}
+
+
+
+
+.trackNumber{
+    min-width: 10px;
+}
+.titleArtist{
+   min-width: 212px;
+   padding-left: 120px;
+}
+.albumName{
+    min-width: 120px;
+    max-width: 120px;
 }

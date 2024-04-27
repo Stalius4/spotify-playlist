@@ -1,23 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
 .outer{
-    margin: 0;
-    line-height: inherit;
-    padding: 0;
-    color: #1D3458;
-
+    background-color: var(--container-color);
+    border: 1px solid rgb(161, 161, 161);
+    min-width: 502px;
+    color: var(--text-color);
     display: flex;
+    align-items: center;
     flex-direction: column;
-    gap: 3;
+    gap:5px;
+    border-radius: 4px;
+    padding-bottom: 15px;
+
+}
+.plus{
+    font-size: 35px;
+    justify-content: baseline;
+}
+.flexRow{
+    display: flex;
+    align-items:center;
+    gap: 4px;
+   
+}
+.header{
+    display: flex;
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 15px;
+    color:var(--text-color-shadow);
+    border-bottom: solid rgb(140, 139, 139) 1px;
+    border-radius: 2px;
+    margin-bottom: 5px;
+    width: 100%;
 }
 
 
-
-img {
-	
-	height:48px;
-    width:48px;
-}
-
-h1{
-    padding: 0;
-    margin: 0;
+.titleArtist{
+    min-width: 225px;
+    padding-left: 100px;
 }

@@ -1,7 +1,8 @@
 import React, {useState} from "react"
 import styles from "../styles/SearchBar.module.css"
-
-function SearchBar({searchResult, setSearchResult,}) {
+import spotify from "../images/spotify.svg"
+import { handleAuth } from "../utilities/auth";
+function SearchBar({searchValue, setSearchValue}) {
 const [searchInput, setSearchInput] = useState("")
   const handleChange = (e) =>{
     const result = e.target.value
@@ -10,7 +11,8 @@ const [searchInput, setSearchInput] = useState("")
   }
 const handleSubmit = (event)=> {
   event.preventDefault()
-setSearchResult(searchInput);
+setSearchValue(searchInput);
+console.log(searchValue)
 }
 
 const handleKeyPress = (event) => {
@@ -18,18 +20,23 @@ const handleKeyPress = (event) => {
     handleSubmit(event); // Call handleSubmit when Enter key is pressed
   }
 }
-  return (<div className={styles.outer}>
-    <div>logo</div>
-    <form onSubmit={handleSubmit} >
-      <input
-        type="text"
-        value={searchInput}
-        onChange={handleChange}
-        onKeyPress={handleKeyPress} // Add the key press handler here
-        placeholder="Search songs"
-      />
-      <button className={styles.submit} type="submit">Submit</button>
-    </form>
+  return (
+  
+  
+  <div className={styles.outer}>
+    <div className={styles.inner}>
+      <img onClick={handleAuth} src={spotify} alt="Login"/>
+      <form onSubmit={handleSubmit} >
+        <input
+          type="text"
+          value={searchInput}
+          onChange={handleChange}
+          onKeyPress={handleKeyPress} // Add the key press handler here
+          placeholder="Search songs"
+        />
+        <button className={styles.submit} type="submit">Submit</button>
+      </form>
+    </div>
     </div>
   );
 }
