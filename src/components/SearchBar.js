@@ -2,6 +2,7 @@ import React, {useState} from "react"
 import styles from "../styles/SearchBar.module.css"
 import spotify from "../images/spotify.svg"
 import { handleAuth } from "../utilities/auth";
+import searchImage from "../images/search.png"
 function SearchBar({searchValue, setSearchValue}) {
 const [searchInput, setSearchInput] = useState("")
   const handleChange = (e) =>{
@@ -32,7 +33,7 @@ const handleKeyPress = (event) => {
           value={searchInput}
           onChange={handleChange}
           onKeyPress={handleKeyPress} // Add the key press handler here
-          placeholder="Search songs"
+          placeholder="Search for songs"
         />
         <button className={styles.submit} type="submit">Submit</button>
       </form>

@@ -1,6 +1,13 @@
 import styles from "../styles/Playlist.module.css"
 
-function PlayList({playlist}) {
+function PlayList({playlist,setPlaylist}) {
+
+  const removeTrack = (songIndex) =>{
+    setPlaylist((prev)=>{
+        return prev.filter((item, index) => index !== songIndex)
+    })
+  }
+
   return (
 <div className={styles.outer}>
   <div className={styles.flexRow}>
@@ -23,7 +30,7 @@ function PlayList({playlist}) {
           <div className={styles.info}>{ `${item.artists[0].name}`}</div>
           </div>
           <div className={styles.albumName}> {item.album.name}</div>
-          <div className={styles.addTrack}>+</div>     
+          <div className={styles.addTrack} onClick={()=>removeTrack(index)}>+</div>     
       
 
         </div>

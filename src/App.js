@@ -45,7 +45,7 @@ function App() {
 
       <div className={styles.flexRow}>
             <SearchResult searchData={searchData} playlist={playlist} setPlaylist={setPlaylist} />
-            <Playlist playlist={playlist}></Playlist>
+            <Playlist playlist={playlist} setPlaylist={setPlaylist}></Playlist>
       </div>
 
      

@@ -5,12 +5,17 @@ function Track({searchData, setPlaylist, playlist}) {
 
 const addSong = (song) =>{
   setPlaylist((prev)=>{
-    return[...prev, song];
+    if(prev.findIndex((e)=> e.id === song.id ) !== -1){
+      return prev;}
+     else{return [...prev, song]}});
     
-  })
   console.log(playlist)
 }
-
+const removeTraack = (taskIndex) =>{
+  setPlaylist((prev)=>{
+      return prev.filter((item, index) => index !== taskIndex)
+  })
+}
 
   return (
 <div className={styles.outter} >
