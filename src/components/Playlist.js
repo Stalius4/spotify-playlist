@@ -12,7 +12,7 @@ function PlayList({playlist,setPlaylist}) {
 <div className={styles.outer}>
   <div className={styles.flexRow}>
     <spam className={styles.plus}>+</spam>
-    <h2>Create Playlist</h2>
+    <input className={styles.playlistName} placeholder="Enter Playlist Name"></input>
   </div>
   <div className={styles.header}>
     <div className={styles.titleArtist}>Title/Artist</div>

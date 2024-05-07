@@ -29,6 +29,7 @@ const handleKeyPress = (event) => {
       <img onClick={handleAuth} src={spotify} alt="Login"/>
       <form onSubmit={handleSubmit} >
         <input
+          className={styles.searchBarInput}
           type="text"
           value={searchInput}
           onChange={handleChange}
