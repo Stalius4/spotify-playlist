@@ -1,12 +1,26 @@
 import styles from "../styles/Playlist.module.css"
+import closedBin from "../images/bin.png"
+import openBin from "../images/openBin.png"
+import { useState } from "react"
 
 function PlayList({playlist,setPlaylist}) {
+  const [hoveredItem, setHoveredItem] = useState(null);
+
+  const handleMouseEnter = (index) => {
+    setHoveredItem(index);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredItem(null);
+  };
 
   const removeTrack = (songIndex) =>{
     setPlaylist((prev)=>{
         return prev.filter((item, index) => index !== songIndex)
     })
   }
+
+
 
   return (
 <div className={styles.outer}>
@@ -30,7 +44,12 @@ function PlayList({playlist,setPlaylist}) {
           <div className={styles.info}>{ `${item.artists[0].name}`}</div>
           </div>
           <div className={styles.albumName}> {item.album.name}</div>
-          <div className={styles.addTrack} onClick={()=>removeTrack(index)}>+</div>     
+          <div className={styles.addTrack} onClick={()=>removeTrack(index)}>
+            <img 
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={handleMouseLeave}
+            src={hoveredItem === index? openBin:closedBin} className={styles.bin}/>
+          </div>     
       
 
         </div>
