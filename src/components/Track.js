@@ -11,17 +11,13 @@ const addSong = (song) =>{
     
   console.log(playlist)
 }
-const removeTraack = (taskIndex) =>{
-  setPlaylist((prev)=>{
-      return prev.filter((item, index) => index !== taskIndex)
-  })
-}
+
 
   return (
 <div className={styles.outter} >
 {searchData &&
       searchData.map((item, index) => (
-        <div className={styles.card} key={item.index}>
+        <div className={styles.card}  key={item.id}>
           <img className={styles.albumImage}src={item.album.images[1].url} alt={item.id} />
  
         

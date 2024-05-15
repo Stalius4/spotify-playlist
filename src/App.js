@@ -1,20 +1,24 @@
 
 import styles from "./styles/App.module.css"
 import SearchBar from "./components/SearchBar"
-import Track from "./components/Track"
-import TrackList from "./components/TrackList"
+
 import Playlist from './components/Playlist';
 import SearchResult from './components/SearchResult';
 import React, {useState, useEffect} from "react"
-import {addPlaylist, searchSong} from "./utilities/utilities"
-import { fetchAccessToken, handleAuth } from "./utilities/auth";
+import {searchSong} from "./utilities/utilities"
+import { fetchAccessToken} from "./utilities/auth";
 
 
 function App() {
  
   const [token, setToken] = useState("")
+
+  //fetched data form Spotify
   const [searchData, setSearchData] = useState([])
+
+  //user input in search bar
   const [searchValue,setSearchValue] =useState("")
+  //tracks picked by user
   const [playlist, setPlaylist]=useState([]);
   
 
@@ -32,10 +36,10 @@ function App() {
   useEffect(() => {
 
     if(searchValue){
-      searchSong(token,setSearchData, searchValue)
+      searchSong(token, setSearchData, searchValue)
 
     }
-  }, [searchValue]);
+  }, [token , searchValue]);
 
 
 
@@ -45,12 +49,12 @@ function App() {
 
       <div className={styles.flexRow}>
             <SearchResult searchData={searchData} playlist={playlist} setPlaylist={setPlaylist} />
-            <Playlist playlist={playlist} setPlaylist={setPlaylist}></Playlist>
+            <Playlist playlist={playlist} setPlaylist={setPlaylist} token={token}></Playlist>
       </div>
 
      
 <div className={styles.fontRed }>
-<button onClick={()=>addPlaylist(token)}>addPlaylist</button>
+
 
 </div>
     </div>

@@ -1,39 +1,6 @@
 
 
   
-    const client_id = '22a43583eba9467f9f2105f8d7fdfef6';
-    const client_secret = 'eb2f41d274c845858c983e9e9c26f02c';
-    const tokenn ="BQDmrD_XEpQesJajpDgk8J1s2-5XX3r3472P5sZaOGSrlcQrmdjqMz3BpLPy8l9HO4BZ7hatvag8SWjJLKQegYFyl8JLo40CvuQJTetzmbHUVGPN66yT2kuoeovbflVVZmbsNsNjlekLhYKhMxQfThDgpEcZEVePkP9CSdvSDPOOVhoK8u_eNXe4Vtk"
-
-
-
-
-
-
-
-     const handleAuth = (setToken) => {
-      const authOptions = {
-        method: 'POST',
-        headers: {
-          'Authorization': 'Basic ' + btoa(client_id + ':' + client_secret),
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: new URLSearchParams({
-          'grant_type': 'client_credentials'
-        }).toString()
-      };
-  
-      fetch('https://accounts.spotify.com/api/token', authOptions)
-        .then(response => response.json())
-        .then(data => {
-          setToken(data.access_token);
-          console.log(data.access_token)
-         
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
-    };
 
 
 
@@ -57,8 +24,15 @@
         }
       }
 
+    
+      export  const  addPlaylist = async (token, playlistName , playlist) => {
 
-      export  const  addPlaylist = async (token) => {
+        const trackArr = []
+
+        for (let i = 0; i < playlist.length; i++) { // Corrected the loop condition and typo
+         trackArr.push(playlist[i].uri)
+        }
+
         const authOptions = {
           method: 'POST',
           headers: {
@@ -66,20 +40,40 @@
               'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            name: 'New Playlistadss',
-            description: 'New playlist description',
-            public: false
-          }) // Adding the body object here
+            name: playlistName,
+            description: '',
+            public: false,
+          })
       };
+      const authOptions1 = {
+        method: 'POST',
+        headers: {
+            'Authorization': 'Bearer ' + token,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          uris:trackArr,
+          position: 0
+        })
+    };
+
         try{
           const response = await fetch(`https://api.spotify.com/v1/users/1136378692/playlists`, authOptions)
           if(response.ok){
            const jsonResponse = await response.json()
+           const createdPlaylistId = jsonResponse.id
            console.log(jsonResponse)
-           
+           console.log(createdPlaylistId, "id")
+          const addSong = await fetch(`https://api.spotify.com/v1/playlists/${createdPlaylistId}/tracks`,authOptions1)
+          if(addSong.ok){
+            const addSongResponse = await addSong.json()
+            console.log(addSongResponse)
+          }
           }
         }
         catch(error){
           console.log(error)
         }
       }
+
+      
